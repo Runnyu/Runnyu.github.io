@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>LeetCode题目:House Robber | Runnyu&#39;s Blog</title>
+  <title>LeetCode题目:Balanced Binary Tree | Runnyu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="House Robber:You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that a">
+  <meta name="description" content="Balanced Binary Tree:Given a binary tree, determine if it is height-balanced.
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of ever">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题目:House Robber">
-<meta property="og:url" content="http://yoursite.com/2016/03/16/LeetCode House Robber/index.html">
+<meta property="og:title" content="LeetCode题目:Balanced Binary Tree">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/LeetCode Balanced Binary Tree/index.html">
 <meta property="og:site_name" content="Runnyu's Blog">
-<meta property="og:description" content="House Robber:You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that a">
-<meta property="og:updated_time" content="2016-03-16T07:10:46.819Z">
+<meta property="og:description" content="Balanced Binary Tree:Given a binary tree, determine if it is height-balanced.
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of ever">
+<meta property="og:updated_time" content="2016-03-16T07:14:44.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题目:House Robber">
-<meta name="twitter:description" content="House Robber:You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that a">
+<meta name="twitter:title" content="LeetCode题目:Balanced Binary Tree">
+<meta name="twitter:description" content="Balanced Binary Tree:Given a binary tree, determine if it is height-balanced.
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of ever">
   
     <link rel="alternative" href="/atom.xml" title="Runnyu&#39;s Blog" type="application/atom+xml">
   
@@ -147,11 +150,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-LeetCode House Robber" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LeetCode Balanced Binary Tree" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/LeetCode House Robber/" class="article-date">
-  	<time datetime="2016-03-16T07:09:35.738Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/16/LeetCode Balanced Binary Tree/" class="article-date">
+  	<time datetime="2016-03-16T07:14:21.039Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -164,7 +167,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode题目:House Robber
+      LeetCode题目:Balanced Binary Tree
     </h1>
   
 
@@ -184,10 +187,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="House-Robber"><a href="#House-Robber" class="headerlink" title="House Robber:"></a>House Robber:</h2><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.</p>
-<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
-<p><strong>tags:Dynamic Programming</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//coll数组用来保存前i间house可以rob到的最大值</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coll;</span><br><span class="line">        <span class="keyword">int</span> size = nums.size();</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span> == size)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span> == size)</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//初始化条件</span></span><br><span class="line">        coll.push_back(nums[<span class="number">0</span>]);</span><br><span class="line">        coll.push_back(nums[<span class="number">0</span>] &gt; nums[<span class="number">1</span>] ? nums[<span class="number">0</span>] : nums[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//前i间house可以rob到的最大值可以根据coll[i - 1]、coll[i - 2]、nums[i]构造出来</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; size; ++i)</span><br><span class="line">            coll.push_back(max(coll[i - <span class="number">1</span>], coll[i - <span class="number">2</span>] + nums[i]));</span><br><span class="line">        <span class="keyword">return</span> coll[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="Balanced-Binary-Tree"><a href="#Balanced-Binary-Tree" class="headerlink" title="Balanced Binary Tree:"></a>Balanced Binary Tree:</h2><p>Given a binary tree, determine if it is height-balanced.</p>
+<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
+<p><strong>tags:DFS</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//求出树的深度</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> max(depth(root-&gt;left), depth(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isBalanced</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//判断是否符合条件</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(depth(root-&gt;left) - depth(root-&gt;right)) &gt; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//递归的判断左右子树是否是平衡的</span></span><br><span class="line">        <span class="keyword">return</span> isBalanced(root-&gt;left) &amp;&amp; isBalanced(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>感觉这样做会重复计算了子树的深度，不过这样做思路比较清晰。</p>
 
       
     </div>
@@ -197,18 +201,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/LeetCode Balanced Binary Tree/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          LeetCode题目:Balanced Binary Tree
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/16/LeetCode Contains Duplicate/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode题目:Contains Duplicate</div>
+    <a href="/2016/03/16/LeetCode House Robber/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode题目:House Robber</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -243,7 +238,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="LeetCode House Robber" data-title="LeetCode题目:House Robber" data-url="http://yoursite.com/2016/03/16/LeetCode House Robber/"></div>
+	<div class="ds-thread" data-thread-key="LeetCode Balanced Binary Tree" data-title="LeetCode题目:Balanced Binary Tree" data-url="http://yoursite.com/2016/03/16/LeetCode Balanced Binary Tree/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
