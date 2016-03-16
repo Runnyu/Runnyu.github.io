@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Runnyu&#39;s Blog</title>
+  <title>LeetCode题目:Contains Duplicate | Runnyu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Runnyu's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Contains Duplicate:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode题目:Contains Duplicate">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/LeetCode Contains Duplicate/index.html">
 <meta property="og:site_name" content="Runnyu's Blog">
-<meta property="og:description">
+<meta property="og:description" content="Contains Duplicate:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false">
+<meta property="og:updated_time" content="2016-03-16T05:07:46.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Runnyu's Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="LeetCode题目:Contains Duplicate">
+<meta name="twitter:description" content="Contains Duplicate:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false">
   
     <link rel="alternative" href="/atom.xml" title="Runnyu&#39;s Blog" type="application/atom+xml">
   
@@ -146,9 +147,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-LeetCode Contains Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LeetCode Contains Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/16/LeetCode Contains Duplicate/" class="article-date">
@@ -164,12 +163,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/LeetCode Contains Duplicate/">LeetCode题目:Contains Duplicate</a>
+    <h1 class="article-title" itemprop="name">
+      LeetCode题目:Contains Duplicate
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -181,92 +191,68 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/16/LeetCode Move Zero/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode题目:Move Zeroes</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-LeetCode Move Zero" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/LeetCode Move Zero/" class="article-date">
-  	<time datetime="2016-03-16T03:37:39.516Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/LeetCode Move Zero/">LeetCode题目:Move Zeroes</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Move-Zeroes："><a href="#Move-Zeroes：" class="headerlink" title="Move Zeroes："></a>Move Zeroes：</h2><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
-<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = nums.size();</span><br><span class="line">        <span class="comment">//ins_pos代表可插入的位置</span></span><br><span class="line">        <span class="keyword">int</span> ins_pos = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//找到一个非0的数并插入到ins_pos</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)</span><br><span class="line">                nums[ins_pos++] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//把数组的后面置为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = ins_pos; i &lt; size; ++i)</span><br><span class="line">            nums[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="LeetCode Contains Duplicate" data-title="LeetCode题目:Contains Duplicate" data-url="http://yoursite.com/2016/03/16/LeetCode Contains Duplicate/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -290,8 +276,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
