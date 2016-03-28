@@ -148,6 +148,64 @@
 
       <div class="body-wrap">
   
+    <article id="post-LeetCode Remove Nth Node From End of List" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/28/LeetCode Remove Nth Node From End of List/" class="article-date">
+  	<time datetime="2016-03-28T02:19:03.839Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/28/LeetCode Remove Nth Node From End of List/">LeetCode题目:Remove Nth Node From End of List</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Remove-Nth-Node-From-End-of-List"><a href="#Remove-Nth-Node-From-End-of-List" class="headerlink" title="Remove Nth Node From End of List:"></a>Remove Nth Node From End of List:</h2><p>Given a linked list, remove the nth node from the end of list and return its head.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">while</span>(n--)</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        <span class="comment">//要删除的结点是头结点</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == fast)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(fast != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除结点</span></span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-LeetCode Binary Tree Level Order Travalsal" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
