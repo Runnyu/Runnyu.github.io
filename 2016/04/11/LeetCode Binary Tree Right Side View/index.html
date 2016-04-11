@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>LeetCode题目:Remove Nth Node From End of List | Runnyu&#39;s Blog</title>
+  <title>LeetCode题目:Binary Tree Right Side View | Runnyu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Remove Nth Node From End of List:Given a linked list, remove the nth node from the end of list and return its head.
-12345678910111213141516171819class Solution &amp;#123;public:    ListNode* removeNthFrom">
+  <meta name="description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+12345678910111213141516171819c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题目:Remove Nth Node From End of List">
-<meta property="og:url" content="http://yoursite.com/2016/03/28/LeetCode Remove Nth Node From End of List/index.html">
+<meta property="og:title" content="LeetCode题目:Binary Tree Right Side View">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/LeetCode Binary Tree Right Side View/index.html">
 <meta property="og:site_name" content="Runnyu's Blog">
-<meta property="og:description" content="Remove Nth Node From End of List:Given a linked list, remove the nth node from the end of list and return its head.
-12345678910111213141516171819class Solution &amp;#123;public:    ListNode* removeNthFrom">
-<meta property="og:updated_time" content="2016-03-28T02:19:20.991Z">
+<meta property="og:description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+12345678910111213141516171819c">
+<meta property="og:updated_time" content="2016-04-11T01:53:57.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题目:Remove Nth Node From End of List">
-<meta name="twitter:description" content="Remove Nth Node From End of List:Given a linked list, remove the nth node from the end of list and return its head.
-12345678910111213141516171819class Solution &amp;#123;public:    ListNode* removeNthFrom">
+<meta name="twitter:title" content="LeetCode题目:Binary Tree Right Side View">
+<meta name="twitter:description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+12345678910111213141516171819c">
   
     <link rel="alternative" href="/atom.xml" title="Runnyu&#39;s Blog" type="application/atom+xml">
   
@@ -150,11 +150,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-LeetCode Remove Nth Node From End of List" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LeetCode Binary Tree Right Side View" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/28/LeetCode Remove Nth Node From End of List/" class="article-date">
-  	<time datetime="2016-03-28T02:19:03.839Z" itemprop="datePublished">2016-03-28</time>
+      <a href="/2016/04/11/LeetCode Binary Tree Right Side View/" class="article-date">
+  	<time datetime="2016-04-11T01:52:42.091Z" itemprop="datePublished">2016-04-11</time>
 </a>
     </div>
   
@@ -167,7 +167,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode题目:Remove Nth Node From End of List
+      LeetCode题目:Binary Tree Right Side View
     </h1>
   
 
@@ -187,8 +187,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Remove-Nth-Node-From-End-of-List"><a href="#Remove-Nth-Node-From-End-of-List" class="headerlink" title="Remove Nth Node From End of List:"></a>Remove Nth Node From End of List:</h2><p>Given a linked list, remove the nth node from the end of list and return its head.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">while</span>(n--)</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        <span class="comment">//要删除的结点是头结点</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == fast)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(fast != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除结点</span></span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="Binary-Tree-Right-Side-View"><a href="#Binary-Tree-Right-Side-View" class="headerlink" title="Binary Tree Right Side View"></a>Binary Tree Right Side View</h2><p>Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode *root, <span class="keyword">int</span> level, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;coll)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(coll.size() == level)</span><br><span class="line">            coll.push_back(root-&gt;val);</span><br><span class="line">        helper(root-&gt;right, level + <span class="number">1</span>, coll);</span><br><span class="line">        helper(root-&gt;left, level + <span class="number">1</span>, coll);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rightSideView(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">if</span>(root)</span><br><span class="line">            helper(root, <span class="number">0</span>, ret);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -198,18 +198,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/11/LeetCode Binary Tree Right Side View/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          LeetCode题目:Binary Tree Right Side View
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/25/LeetCode Binary Tree Level Order Travalsal/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode题目:Binary Tree Level Order Traversal</div>
+    <a href="/2016/03/28/LeetCode Remove Nth Node From End of List/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode题目:Remove Nth Node From End of List</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -244,7 +235,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="LeetCode Remove Nth Node From End of List" data-title="LeetCode题目:Remove Nth Node From End of List" data-url="http://yoursite.com/2016/03/28/LeetCode Remove Nth Node From End of List/"></div>
+	<div class="ds-thread" data-thread-key="LeetCode Binary Tree Right Side View" data-title="LeetCode题目:Binary Tree Right Side View" data-url="http://yoursite.com/2016/04/11/LeetCode Binary Tree Right Side View/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
