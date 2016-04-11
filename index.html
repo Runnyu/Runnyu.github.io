@@ -148,6 +148,65 @@
 
       <div class="body-wrap">
   
+    <article id="post-LeetCode House Robber III" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/11/LeetCode House Robber III/" class="article-date">
+  	<time datetime="2016-04-11T03:40:58.153Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/11/LeetCode House Robber III/">LeetCode题目:House Robber III</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="House-Robber-III"><a href="#House-Robber-III" class="headerlink" title="House Robber III"></a>House Robber III</h2><p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root-&gt;left &amp;&amp; <span class="literal">NULL</span> == root-&gt;right)</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        <span class="comment">//两种方案：是否包含root-&gt;val</span></span><br><span class="line">        <span class="keyword">int</span> c1 = rob(root-&gt;left) + rob(root-&gt;right);</span><br><span class="line">        <span class="keyword">int</span> c2 = root-&gt;val;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left)</span><br><span class="line">            c2 += rob(root-&gt;left-&gt;left) + rob(root-&gt;left-&gt;right);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right)</span><br><span class="line">            c2 += rob(root-&gt;right-&gt;left) + rob(root-&gt;right-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> c1 &gt; c2 ? c1 : c2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-LeetCode Binary Tree Right Side View" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -665,65 +724,6 @@
 <p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
 <p><strong>tags:Dynamic Programming</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//coll数组用来保存前i间house可以rob到的最大值</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coll;</span><br><span class="line">        <span class="keyword">int</span> size = nums.size();</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span> == size)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span> == size)</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//初始化条件</span></span><br><span class="line">        coll.push_back(nums[<span class="number">0</span>]);</span><br><span class="line">        coll.push_back(nums[<span class="number">0</span>] &gt; nums[<span class="number">1</span>] ? nums[<span class="number">0</span>] : nums[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//前i间house可以rob到的最大值可以根据coll[i - 1]、coll[i - 2]、nums[i]构造出来</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; size; ++i)</span><br><span class="line">            coll.push_back(max(coll[i - <span class="number">1</span>], coll[i - <span class="number">2</span>] + nums[i]));</span><br><span class="line">        <span class="keyword">return</span> coll[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-LeetCode Contains Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/LeetCode Contains Duplicate/" class="article-date">
-  	<time datetime="2016-03-16T03:56:00.678Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/LeetCode Contains Duplicate/">LeetCode题目:Contains Duplicate</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Contains-Duplicate"><a href="#Contains-Duplicate" class="headerlink" title="Contains Duplicate:"></a>Contains Duplicate:</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
-<p><strong>tags:hashtable</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hash槽的大小应该根据输入来决定</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HASH_SIZE 3000</span></span><br><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coll[HASH_SIZE];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i : nums)&#123;</span><br><span class="line">            <span class="keyword">int</span> hash = i &gt; <span class="number">0</span> ? i % <span class="number">1000</span> : -i % <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">if</span>(find(coll[hash].begin(), coll[hash].end(), i) != coll[hash].end())</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            coll[hash].push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>

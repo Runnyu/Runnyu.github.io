@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>LeetCode题目:Binary Tree Right Side View | Runnyu&#39;s Blog</title>
+  <title>LeetCode题目:House Robber III | Runnyu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
-12345678910111213141516171819c">
+  <meta name="description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题目:Binary Tree Right Side View">
-<meta property="og:url" content="http://yoursite.com/2016/04/11/LeetCode Binary Tree Right Side View/index.html">
+<meta property="og:title" content="LeetCode题目:House Robber III">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/LeetCode House Robber III/index.html">
 <meta property="og:site_name" content="Runnyu's Blog">
-<meta property="og:description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
-12345678910111213141516171819c">
-<meta property="og:updated_time" content="2016-04-11T01:53:57.464Z">
+<meta property="og:description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
+<meta property="og:updated_time" content="2016-04-11T03:41:16.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题目:Binary Tree Right Side View">
-<meta name="twitter:description" content="Binary Tree Right Side ViewGiven a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
-12345678910111213141516171819c">
+<meta name="twitter:title" content="LeetCode题目:House Robber III">
+<meta name="twitter:description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
   
     <link rel="alternative" href="/atom.xml" title="Runnyu&#39;s Blog" type="application/atom+xml">
   
@@ -150,11 +147,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-LeetCode Binary Tree Right Side View" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-LeetCode House Robber III" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/11/LeetCode Binary Tree Right Side View/" class="article-date">
-  	<time datetime="2016-04-11T01:52:42.091Z" itemprop="datePublished">2016-04-11</time>
+      <a href="/2016/04/11/LeetCode House Robber III/" class="article-date">
+  	<time datetime="2016-04-11T03:40:58.153Z" itemprop="datePublished">2016-04-11</time>
 </a>
     </div>
   
@@ -167,7 +164,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode题目:Binary Tree Right Side View
+      LeetCode题目:House Robber III
     </h1>
   
 
@@ -187,8 +184,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Binary-Tree-Right-Side-View"><a href="#Binary-Tree-Right-Side-View" class="headerlink" title="Binary Tree Right Side View"></a>Binary Tree Right Side View</h2><p>Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode *root, <span class="keyword">int</span> level, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;coll)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(coll.size() == level)</span><br><span class="line">            coll.push_back(root-&gt;val);</span><br><span class="line">        helper(root-&gt;right, level + <span class="number">1</span>, coll);</span><br><span class="line">        helper(root-&gt;left, level + <span class="number">1</span>, coll);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rightSideView(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">if</span>(root)</span><br><span class="line">            helper(root, <span class="number">0</span>, ret);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="House-Robber-III"><a href="#House-Robber-III" class="headerlink" title="House Robber III"></a>House Robber III</h2><p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root-&gt;left &amp;&amp; <span class="literal">NULL</span> == root-&gt;right)</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        <span class="comment">//两种方案：是否包含root-&gt;val</span></span><br><span class="line">        <span class="keyword">int</span> c1 = rob(root-&gt;left) + rob(root-&gt;right);</span><br><span class="line">        <span class="keyword">int</span> c2 = root-&gt;val;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left)</span><br><span class="line">            c2 += rob(root-&gt;left-&gt;left) + rob(root-&gt;left-&gt;right);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right)</span><br><span class="line">            c2 += rob(root-&gt;right-&gt;left) + rob(root-&gt;right-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> c1 &gt; c2 ? c1 : c2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -198,18 +196,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/11/LeetCode House Robber III/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          LeetCode题目:House Robber III
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/28/LeetCode Remove Nth Node From End of List/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode题目:Remove Nth Node From End of List</div>
+    <a href="/2016/04/11/LeetCode Binary Tree Right Side View/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode题目:Binary Tree Right Side View</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -244,7 +233,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="LeetCode Binary Tree Right Side View" data-title="LeetCode题目:Binary Tree Right Side View" data-url="http://yoursite.com/2016/04/11/LeetCode Binary Tree Right Side View/"></div>
+	<div class="ds-thread" data-thread-key="LeetCode House Robber III" data-title="LeetCode题目:House Robber III" data-url="http://yoursite.com/2016/04/11/LeetCode House Robber III/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
