@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>LeetCode题目:House Robber III | Runnyu&#39;s Blog</title>
+  <title>虚拟地址 | Runnyu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
+  <meta name="description" content="关于虚拟地址的一些理解首先很重要的一点：虚拟地址空间不等于Windows下的虚拟内存!!!!!关于这两个概念相信包括我在内的好多人都会混淆。
+1.虚拟地址的由来ps:参考自&amp;lt;程序员的自我修养&amp;gt;
+我们知道，CPU是并发执行多个程序的，在运行多个程序时。一个明显的问题是：如何将计算机上有限的物理内存分配给多个程序使用。
+假设我们计算机有128MB内存，程序A、B、C运行分别需要10MB、1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题目:House Robber III">
-<meta property="og:url" content="http://yoursite.com/2016/04/11/LeetCode House Robber III/index.html">
+<meta property="og:title" content="虚拟地址">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/虚拟内存/index.html">
 <meta property="og:site_name" content="Runnyu's Blog">
-<meta property="og:description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
-<meta property="og:updated_time" content="2016-04-11T03:41:16.237Z">
+<meta property="og:description" content="关于虚拟地址的一些理解首先很重要的一点：虚拟地址空间不等于Windows下的虚拟内存!!!!!关于这两个概念相信包括我在内的好多人都会混淆。
+1.虚拟地址的由来ps:参考自&amp;lt;程序员的自我修养&amp;gt;
+我们知道，CPU是并发执行多个程序的，在运行多个程序时。一个明显的问题是：如何将计算机上有限的物理内存分配给多个程序使用。
+假设我们计算机有128MB内存，程序A、B、C运行分别需要10MB、1">
+<meta property="og:updated_time" content="2016-04-14T09:09:43.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题目:House Robber III">
-<meta name="twitter:description" content="House Robber IIIThe thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent hou">
+<meta name="twitter:title" content="虚拟地址">
+<meta name="twitter:description" content="关于虚拟地址的一些理解首先很重要的一点：虚拟地址空间不等于Windows下的虚拟内存!!!!!关于这两个概念相信包括我在内的好多人都会混淆。
+1.虚拟地址的由来ps:参考自&amp;lt;程序员的自我修养&amp;gt;
+我们知道，CPU是并发执行多个程序的，在运行多个程序时。一个明显的问题是：如何将计算机上有限的物理内存分配给多个程序使用。
+假设我们计算机有128MB内存，程序A、B、C运行分别需要10MB、1">
   
     <link rel="alternative" href="/atom.xml" title="Runnyu&#39;s Blog" type="application/atom+xml">
   
@@ -147,11 +156,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-LeetCode House Robber III" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-虚拟内存" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/11/LeetCode House Robber III/" class="article-date">
-  	<time datetime="2016-04-11T03:40:58.153Z" itemprop="datePublished">2016-04-11</time>
+      <a href="/2016/04/14/虚拟内存/" class="article-date">
+  	<time datetime="2016-04-14T09:09:22.564Z" itemprop="datePublished">2016-04-14</time>
 </a>
     </div>
   
@@ -164,7 +173,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode题目:House Robber III
+      虚拟地址
     </h1>
   
 
@@ -173,7 +182,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
 	</div>
 
         
@@ -184,9 +193,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="House-Robber-III"><a href="#House-Robber-III" class="headerlink" title="House Robber III"></a>House Robber III</h2><p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
-<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root-&gt;left &amp;&amp; <span class="literal">NULL</span> == root-&gt;right)</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        <span class="comment">//两种方案：是否包含root-&gt;val</span></span><br><span class="line">        <span class="keyword">int</span> c1 = rob(root-&gt;left) + rob(root-&gt;right);</span><br><span class="line">        <span class="keyword">int</span> c2 = root-&gt;val;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left)</span><br><span class="line">            c2 += rob(root-&gt;left-&gt;left) + rob(root-&gt;left-&gt;right);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right)</span><br><span class="line">            c2 += rob(root-&gt;right-&gt;left) + rob(root-&gt;right-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> c1 &gt; c2 ? c1 : c2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="关于虚拟地址的一些理解"><a href="#关于虚拟地址的一些理解" class="headerlink" title="关于虚拟地址的一些理解"></a><strong>关于虚拟地址的一些理解</strong></h2><p>首先很重要的一点：虚拟地址空间不等于Windows下的虚拟内存!!!!!<br>关于这两个概念相信包括我在内的好多人都会混淆。</p>
+<h3 id="1-虚拟地址的由来"><a href="#1-虚拟地址的由来" class="headerlink" title="1.虚拟地址的由来"></a><strong>1.虚拟地址的由来</strong></h3><p>ps:参考自&lt;程序员的自我修养&gt;</p>
+<p>我们知道，CPU是并发执行多个程序的，在运行多个程序时。一个明显的问题是：如何将计算机上有限的物理内存分配给多个程序使用。</p>
+<p>假设我们计算机有128MB内存，程序A、B、C运行分别需要10MB、100MB、20MB。那么比较直接的做法就是把内存的前10MB分配给程序A，10MB~110MB分配给程序B。这样就能够实现A和B两个程序同时运行，但是这种简单得内存分配策略问题很多：</p>
+<p>① 地址空间不隔离：所有程序都直接访问物理内存，恶意的程序可以容易改写其它程序的内存数据。<br>② 内存使用效率低：如果上面的例子中我们突然要运行程序C，那么只能把B换出磁盘，然后把C读入到内存开始运行。可以看到整个过程中有大量的数据换入换出，导致效率非常低下。<br>③ 程序运行的地址不确定： 程序每次装入运行时，在内存分配的地址是不确定的，但是在程序编写时，它访问数据和指令跳转时的目标地址很多都是固定的。</p>
+<p>因此，现代计算机引入了虚拟存储器(Vitual Memory，也叫虚拟地址空间)的概念，它是对物理内存的一种抽象。虚拟地址空间是虚拟的，每个进程都有自己独立的虚拟空间。</p>
+<p>ps：以前一直在纠结虚拟地址空间到底是实现的(而且一度认为每个进程都会在硬盘中分配一段空间来存储 ╮(╯▽╰)╭)，后来发现进程只是维护一个mm_struct结构(具体实现我也不懂啦)。</p>
+<h3 id="2-虚拟地址跟物理地址的转换"><a href="#2-虚拟地址跟物理地址的转换" class="headerlink" title="2.虚拟地址跟物理地址的转换"></a><strong>2.虚拟地址跟物理地址的转换</strong></h3><p>ps：程序中使用的一般都为虚拟地址(如malloc返回的地址)</p>
+<p>每个进程都有固定大小的虚拟地址空间(32位的地址空间大小为4GB)。通过虚拟地址跟物理地址的转换技术，我们通过操作虚拟地址来使用物理地址，并且可以解决我们上面提出的三个问题：</p>
+<p>① 通过给虚拟地址(设置标志位？)对物理内存进行隔离<br>② 通过分页技术可以把防止大量的数据换入换出<br>③ 通过访问固定的虚拟地址来访问不确定的物理地址</p>
+<p>(关于虚拟地址跟物理地址的转换(通过MMU)相信网上随便都能搜到啦 ╮(╯▽╰)╭)</p>
 
       
     </div>
@@ -196,18 +213,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/14/虚拟内存/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          虚拟地址
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/11/LeetCode Binary Tree Right Side View/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode题目:Binary Tree Right Side View</div>
+    <a href="/2016/04/11/LeetCode House Robber III/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode题目:House Robber III</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -242,7 +250,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="LeetCode House Robber III" data-title="LeetCode题目:House Robber III" data-url="http://yoursite.com/2016/04/11/LeetCode House Robber III/"></div>
+	<div class="ds-thread" data-thread-key="虚拟内存" data-title="虚拟地址" data-url="http://yoursite.com/2016/04/14/虚拟内存/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
