@@ -94,7 +94,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CGI/" style="font-size: 15px;">CGI</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a>
+						<a href="/tags/CGI/" style="font-size: 15px;">CGI</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/编译原理/" style="font-size: 10px;">编译原理</a>
 					</div>
 				</section>
 				
@@ -147,6 +147,88 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-编译过程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/23/编译过程/" class="article-date">
+  	<time datetime="2016-05-23T03:17:14.271Z" itemprop="datePublished">2016-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/23/编译过程/">编译的过程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="编译的4个步骤"><a href="#编译的4个步骤" class="headerlink" title="编译的4个步骤"></a><strong>编译的4个步骤</strong></h3><p>ps:参考自&lt;程序员的自我修养&gt;</p>
+<p>我们知道使用GCC可以将C文件编译成可执行文件。<br>而这个过程可以分解为4个步骤：</p>
+<ol>
+<li>预处理(Prepressing)</li>
+<li>编译(Compilation)</li>
+<li>汇编(Assembly)</li>
+<li>链接(Linking)</li>
+</ol>
+<h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><p>利用GCC的-E参数可以预处理源代码文件，该过程主要做了如下工作：</p>
+<ul>
+<li>处理源代码中以“#”开始的预编译指令，如：“#include”、“#define”、“#ifdef”。</li>
+<li>删除所有的注释</li>
+<li>添加行号和文件名标识。</li>
+</ul>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>这个过程会将预处理后的源代码编译成汇编语言。主要包括如下步骤：</p>
+<ol>
+<li>扫描</li>
+<li>语法分析</li>
+<li>语义分析</li>
+<li>源代码优化</li>
+<li>目标代码的生成和优化</li>
+</ol>
+<p>每一条语句都会生成一棵语法树，而编译器会根据该语法树来生成相应的汇编代码。</p>
+<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><p>每一条汇编指令对应着一条机器指令。<br>该过程将汇编指令转换成机器指令，生成目标代码(.o文件)。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>通常来说，一个可执行程序是由多个目标代码链接而成。</p>
+<h5 id="模块拼接–静态链接"><a href="#模块拼接–静态链接" class="headerlink" title="模块拼接–静态链接"></a>模块拼接–静态链接</h5><p>a.c中会调用b.c中的foo()地址，而每个模块都是单独编译的，因此在编译a.c的时候并不知道foo()函数的地址，<br>所以它暂时把这些调用foo()的目标地址搁置，等待最后链接的时候将这些地址修正。<br>因此，链接器在这个时候充当着重定位的作用。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-虚拟内存" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -670,67 +752,6 @@
         <h2 id="Symmetric-Tree"><a href="#Symmetric-Tree" class="headerlink" title="Symmetric Tree:"></a>Symmetric Tree:</h2><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
 <p> 其实关于树的算法一般都是使用递归，只要有正确的思路就很容易做出来</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//一棵树是否是对称的可以根据它的子树进行判断</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(TreeNode *left, TreeNode *right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left &amp;&amp; <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left || <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//两个子树的根节点的值必须相等</span></span><br><span class="line">        <span class="keyword">if</span>(left-&gt;val != right-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">            根据对称树的定义，可以得到下面的规律</span><br><span class="line">            左子树的左子树跟右子树的右子树必须对称</span><br><span class="line">            左子树的右子树跟右子树的左子树必须对称</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">return</span> helper(left-&gt;left, right-&gt;right) &amp;&amp; helper(left-&gt;right, right-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-LeetCode Balanced Binary Tree" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/LeetCode Balanced Binary Tree/" class="article-date">
-  	<time datetime="2016-03-16T07:14:21.039Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/LeetCode Balanced Binary Tree/">LeetCode题目:Balanced Binary Tree</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Balanced-Binary-Tree"><a href="#Balanced-Binary-Tree" class="headerlink" title="Balanced Binary Tree:"></a>Balanced Binary Tree:</h2><p>Given a binary tree, determine if it is height-balanced.</p>
-<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
-<p><strong>tags:DFS</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//求出树的深度</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> max(depth(root-&gt;left), depth(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isBalanced</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//判断是否符合条件</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(depth(root-&gt;left) - depth(root-&gt;right)) &gt; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//递归的判断左右子树是否是平衡的</span></span><br><span class="line">        <span class="keyword">return</span> isBalanced(root-&gt;left) &amp;&amp; isBalanced(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>感觉这样做会重复计算了子树的深度，不过这样做思路比较清晰。</p>
 
       
     </div>
