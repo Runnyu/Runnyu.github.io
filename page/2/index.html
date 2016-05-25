@@ -62,7 +62,7 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>Menu</li>
-						<li>Tags</li>
+						<li>Тэги</li>
 						
 						
 					</ul>
@@ -147,6 +147,65 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-LeetCode Symmetric Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/21/LeetCode Symmetric Tree/" class="article-date">
+  	<time datetime="2016-03-21T03:03:01.336Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/21/LeetCode Symmetric Tree/">LeetCode题目:Symmetric Tree</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Symmetric-Tree"><a href="#Symmetric-Tree" class="headerlink" title="Symmetric Tree:"></a>Symmetric Tree:</h2><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
+<p> 其实关于树的算法一般都是使用递归，只要有正确的思路就很容易做出来</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//一棵树是否是对称的可以根据它的子树进行判断</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(TreeNode *left, TreeNode *right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left &amp;&amp; <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left || <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//两个子树的根节点的值必须相等</span></span><br><span class="line">        <span class="keyword">if</span>(left-&gt;val != right-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">            根据对称树的定义，可以得到下面的规律</span><br><span class="line">            左子树的左子树跟右子树的右子树必须对称</span><br><span class="line">            左子树的右子树跟右子树的左子树必须对称</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">return</span> helper(left-&gt;left, right-&gt;right) &amp;&amp; helper(left-&gt;right, right-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-LeetCode Balanced Binary Tree" class="article article-type-post" itemscope itemprop="blogPost">
   

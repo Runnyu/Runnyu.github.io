@@ -62,7 +62,7 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>Menu</li>
-						<li>Tags</li>
+						<li>Тэги</li>
 						
 						
 					</ul>
@@ -147,6 +147,69 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-libxml2解析xml" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/25/libxml2解析xml/" class="article-date">
+  	<time datetime="2016-05-25T10:13:58.205Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/25/libxml2解析xml/">解析xml</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用libxml2解析xml"><a href="#使用libxml2解析xml" class="headerlink" title="使用libxml2解析xml"></a><strong>使用libxml2解析xml</strong></h3><h5 id="编译安装libxml2"><a href="#编译安装libxml2" class="headerlink" title="编译安装libxml2"></a>编译安装libxml2</h5><p>Download:<a href="http://xmlsoft.org/downloads.html" target="_blank" rel="external">http://xmlsoft.org/downloads.html</a></p>
+<p>解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf libxml2-2.7.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure></p>
+<p>编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>建立软连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln <span class="_">-s</span> /usr/include/libxml2/libxml /usr/include/libxml</span><br></pre></td></tr></table></figure></p>
+<h5 id="使用libxml"><a href="#使用libxml" class="headerlink" title="使用libxml"></a>使用libxml</h5><p>参考自:<a href="http://blog.csdn.net/hdutigerkin/article/details/7546899" target="_blank" rel="external">http://blog.csdn.net/hdutigerkin/article/details/7546899</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libxml/tree.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libxml/parser.h&gt;</span>  </span></span><br><span class="line"></span><br><span class="line">xmlDocPtr doc = <span class="literal">NULL</span>;  </span><br><span class="line">xmlNodePtr node = <span class="literal">NULL</span>;  </span><br><span class="line">  </span><br><span class="line">doc = xmlParseFile(filename);  </span><br><span class="line"><span class="keyword">if</span>(<span class="literal">NULL</span>  == doc) &#123;  </span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"parse error\n"</span>);  </span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">node = xmlDocGetRootElement(doc);  </span><br><span class="line"><span class="keyword">if</span>(<span class="literal">NULL</span> == node) &#123;  </span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"doc has no content\n"</span>); </span><br><span class="line">    xmlFreeDoc(doc);  </span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">	node-&gt;name:节点的名字</span><br><span class="line">	node-&gt;xmlChildrenNode:节点的子节点</span><br><span class="line">	node-&gt;last:节点的最后一个子节点</span><br><span class="line">	node-&gt;parent:节点的父节点</span><br><span class="line">	node-&gt;next:节点的兄弟节点</span><br><span class="line">	使用xmlNodeGetContent可以取出结点内容:xmlNodeGetContent(node)</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// dosomething what you want</span></span><br><span class="line"></span><br><span class="line">xmlFreeDoc(doc);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p>编译时需要指定库文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-L/usr/include/libxml2/ -lxml2</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGI/">CGI</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-编译过程" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -702,65 +765,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGI/">CGI</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-LeetCode Symmetric Tree" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/21/LeetCode Symmetric Tree/" class="article-date">
-  	<time datetime="2016-03-21T03:03:01.336Z" itemprop="datePublished">2016-03-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/21/LeetCode Symmetric Tree/">LeetCode题目:Symmetric Tree</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Symmetric-Tree"><a href="#Symmetric-Tree" class="headerlink" title="Symmetric Tree:"></a>Symmetric Tree:</h2><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<p> 其实关于树的算法一般都是使用递归，只要有正确的思路就很容易做出来</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//一棵树是否是对称的可以根据它的子树进行判断</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(TreeNode *left, TreeNode *right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left &amp;&amp; <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == left || <span class="literal">NULL</span> == right)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//两个子树的根节点的值必须相等</span></span><br><span class="line">        <span class="keyword">if</span>(left-&gt;val != right-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">            根据对称树的定义，可以得到下面的规律</span><br><span class="line">            左子树的左子树跟右子树的右子树必须对称</span><br><span class="line">            左子树的右子树跟右子树的左子树必须对称</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">return</span> helper(left-&gt;left, right-&gt;right) &amp;&amp; helper(left-&gt;right, right-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
 	</div>
 
       
